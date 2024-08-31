@@ -1,6 +1,6 @@
 # RPE-Answers
 
-### Arquitetura de Front-end:
+### Arquitetura de Front-end (coloquei nos arquivos uma imagem de como seria a arquitetura que imaginei para uma aplicação dessa forma):
 
 - Como primeiro passo sendo a escolha das tecnologias para serem utilizadas no projeto. A escolha consistiria em:
   * Biblioteca Front-end: React
@@ -41,7 +41,7 @@
 
 ##
 
-### Manutenção e Evolução de Projeto
+### Manutenção e Evolução de Projeto:
 
 - Para este caso em específico seria necessário dividir em etapas a solução, de forma a diminuir a dívida técnica a partir de uma atuação direcionada e ter um plano estruturado para tal.
   
@@ -53,19 +53,27 @@
   
 ##
 
-### Integração com Back-end e APIs ( Coloquei no código a estrutura de pastas que eu criaria para esse fluxo )
+### Integração com Back-end e APIs ( Coloquei no código a estrutura de pastas que eu criaria para esse fluxo ):
 
 - Primeiro de tudo para ter um fluxo estrurado de integração, seria necessário criar a config de integração da API, instalação do axios e centralização de conexão com o serviço e implementação de interceptators nele. 
- * Após realizar a config, seria necessário fazer a instalação de uma biblioteca de gerenciamento de estado global ( eu usaria o Redux com Redux Toolkit ), ao fazer essa centralização, faria com que toda a nossa aplicação tivesse conhecimento de qualquer requisição em qualquer parte do código, fazendo assim com que a aplicação possa conversar melhor entre si e até também reaproveitar requisições gerais criadas para outros fluxos mas que poderiam ser reutilizadas.
- * Criar também dentro da pasta config um arquivo enviroment que controlaria nosso .env e a partir disso faria a identificação de ambiente e setaria as keys necessárias para cada ambiente
- * Para as requisições que fossem reutilizadas, poderíamos fazer uma pasta de hooks, onde teríamos a personalização para cada caso.
- * A estrutura seria então, diretório `src` que iria conter os diretórios `config (conexão com api), que teria o arquivo enviroment.ts`, `store ( local onde seria configurado o controle de estado global [REDUX]`, `hooks ( local onde teriam hooks personalizados em geral, não apenas os de requisição )`.
- * A ideia geral é centralizar no redux todas as requisições e a partir disso criar uma arquitetura do código que consegue reutilizar tudo.
+- Após realizar a config, seria necessário fazer a instalação de uma biblioteca de gerenciamento de estado global ( eu usaria o Redux com Redux Toolkit ), ao fazer essa centralização, faria com que toda a nossa aplicação tivesse conhecimento de qualquer requisição em qualquer parte do código, fazendo assim com que a aplicação possa conversar melhor entre si e até também reaproveitar requisições gerais criadas para outros fluxos mas que poderiam ser reutilizadas.
+- Criar também dentro da pasta config um arquivo enviroment que controlaria nosso .env e a partir disso faria a identificação de ambiente e setaria as keys necessárias para cada ambiente
+- Para as requisições que fossem reutilizadas, poderíamos fazer uma pasta de hooks, onde teríamos a personalização para cada caso.
+- A estrutura seria então, diretório `src` que iria conter os diretórios `config (conexão com api), que teria o arquivo enviroment.ts`, `store ( local onde seria configurado o controle de estado global [REDUX]`, `hooks ( local onde teriam hooks personalizados em geral, não apenas os de requisição )`.
+- A ideia geral é centralizar no redux todas as requisições e a partir disso criar uma arquitetura do código que consegue reutilizar tudo.
 
 ##
 
-### Design e UX
+### Design e UX:
 
+- A primeira etapa de criação de um design system está intrísecamente ligada à definições que têm que ser feitas como fundamentos que irão guiar o Design System. Primeiro teria que documentar todos os princípios como cores, tipografia, espaçamento, sombras e tamanhos. Isso seria em paralelo com o estabelicimento de boas práticas e acessibilidade também. Após essas definições, outro fluxo que seria necessário seria definir tokens de design para garantir consistência no que vai ser utilizado.
+- A segunda seria a criação de componentes reutilizáveis. Seria criada uma biblioteca com componentes reutilizáveis e "coringas" de forma que possam ser modificados a partir de um componente base, como inputs, botões, modais e afins. A criação de um Storybook para documentar e demonstrar esses componentes seria algo extremamente poderoso.
+- A criação dos componentes no código devem permitir temas, serem baseados em props ( para poder realizar mudanças no mesmo a partir da definição da propriedade ) e ter uma estruturação como um Atomic Design, de forma a separar os componentes em átomos, moléculas e organismos.
+- O design system tem uma perspectiva de crescimento imensa quando é feita de forma a ser um repositório separado e integrado com um sistema de pacotes para poder publicar e versionar esse Design System. Num cenário ideal seria implementado um processo de CI/CD para publicar as alterações no design system de forma automaticamente testada.
+- É importante também ter uma wiki que explique sobre os componentes, o que eles fazem, como implementar e como deve ser feito o uso de cada componente.
 
+##
+
+### 
 
 

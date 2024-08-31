@@ -43,4 +43,29 @@
 
 ### Manutenção e Evolução de Projeto
 
-- 
+- Para este caso em específico seria necessário dividir em etapas a solução, de forma a diminuir a dívida técnica a partir de uma atuação direcionada e ter um plano estruturado para tal.
+  
+  * 1ª Etapa: iria consistir em entender qual o estado atual da aplicação identificando áreas críticas onde teria dívida técnica e a partir disso planejar um processo de refactor. Poderia ser inicialmente feito a partir de revisão de código que possui duplicações, excesso de acomplamento e falta de testes unitários para esses locais. Uma parte extremamente importante seria ter o mapeamento das jornadas que são críticas para a atuação e disposição do negócio em si ( jornadas que impactam diretamente no lucro ) para ter uma atenção especial no processo de refactor. Após ter esse mapeamento das jornadas e locais que precisam de refactor, seria ideal criar um backlog estruturado e a partir disso definir metas para a refatoração.
+  * 2º Etapa: tendo um backlog estruturado, poderíamos seguir para um cenário de análise de ambiente de teste para ver se o mesmo suporta grandes mudanças. Esse ambiente de testes teria que ser criado baseado no ambiente de produção, para ter testes mais assertividade no desenvolvimento e entregar ao cliente a melhora sem prejudicar sua jornada. Após isso, definir um gitflow para seguir de forma a estruturar a publicação e ter um versionamento tanto de código quanto da aplicação em si de forma mais assertiva. Em paralelo à um versionamento, seria importante estruturar um CI de forma a ter pipelines que testem automaticamente o código antes de subir para a branch ( isso em um cenário muito ideal ).
+  * 3º Etapa: iniciar o refactor do código de forma incremental, separando por mini tarefas e realizando o fluxo de testes unitários para cada nova implementação e em paralelo melhorar a segurança e perfomance da aplicação, analisando aninhamento de loop, excesso de render. Ter rotinas de code review entre as squads é necessário e além disso fazer uso de ferramenta pra análise de código estático para o front ( ESLint ).
+  * 4º Etapa: depois de fazer a verificação das etapas anteriores seria necessário garantir que a aplicação está pronta para ser publicada com segurança. Dado isto, seria necessário realizar testes regressivos ( de forma a passar pelas jornadas críticas e de mais impacto ao cliente ), realizar testes de seguranças ( pen tests ) para garantir que o refactor não trouxe novas vulnerabilidades e além de tudo realizar testes de perfomance para entender se está condizente com o esperado das jornadas ( tempo de loading, render e afins ).
+  * 5º Etapa: após publicar o produto refatorado, seria necessário estabelecer uma cultura de monitoramento contínuo e melhoria contínua também para garantir que o produto continue viável para o uso.
+  
+##
+
+### Integração com Back-end e APIs ( Coloquei no código a estrutura de pastas que eu criaria para esse fluxo )
+
+- Primeiro de tudo para ter um fluxo estrurado de integração, seria necessário criar a config de integração da API, instalação do axios e centralização de conexão com o serviço e implementação de interceptators nele. 
+ * Após realizar a config, seria necessário fazer a instalação de uma biblioteca de gerenciamento de estado global ( eu usaria o Redux com Redux Toolkit ), ao fazer essa centralização, faria com que toda a nossa aplicação tivesse conhecimento de qualquer requisição em qualquer parte do código, fazendo assim com que a aplicação possa conversar melhor entre si e até também reaproveitar requisições gerais criadas para outros fluxos mas que poderiam ser reutilizadas.
+ * Criar também dentro da pasta config um arquivo enviroment que controlaria nosso .env e a partir disso faria a identificação de ambiente e setaria as keys necessárias para cada ambiente
+ * Para as requisições que fossem reutilizadas, poderíamos fazer uma pasta de hooks, onde teríamos a personalização para cada caso.
+ * A estrutura seria então, diretório `src` que iria conter os diretórios `config (conexão com api), que teria o arquivo enviroment.ts`, `store ( local onde seria configurado o controle de estado global [REDUX]`, `hooks ( local onde teriam hooks personalizados em geral, não apenas os de requisição )`.
+ * A ideia geral é centralizar no redux todas as requisições e a partir disso criar uma arquitetura do código que consegue reutilizar tudo.
+
+##
+
+### Design e UX
+
+
+
+

@@ -74,6 +74,32 @@
 
 ##
 
-### 
+### Testes e Qualidade de Código:
+
+- Para estruturar uma pipeline com CI/CD seria necessário configurar o ambiente de desenvolvimento do repositório para suportar continous integration. Para isso teríamos primeiro que seguir um gitflow para organizar o desenvolvimento e as releases, como também ter rotinas fixas de revisão de PR para ter garantia de qualidade de código.
+- Tendo esse fluxo estruturado, viria o momento de configurar as etapas da pipeline, pois é necessário que o código seja testado em vários níveis antes de ser implantado.
+  * Primeiro fluxo seria o linting e análise estática de código
+  * Segundo fluxo seria testes unitários na pipe. Esses atuariam em funções, classes ou qualquer estrutura necessária no código.
+  * Terceiro seria ter um fluxo de teste end-to-end para garantir que todas as partes da aplicação funcionem juntas
+  * E o último passo seria o build e o deploy em si da aplicação. O github action poderia ser uma ferramenta para automatização de deploy.
+
+##
+
+### Adoção de Novas Tecnologias:
+
+- Como a adoção de uma nova tecnologia pode ter impactos tanto positivos quanto negativos na produtividade, manutenção e em longo prazo na evolução da aplicação é algo a ser analisado com bastante calma e considerando muitos critérios. O primeiro caso de análise seria relacionado diretamente ao projeto atual. Entender em qual contexto se encontra o projeto e o que o novo framework que vai ser implementado deve atender.
+- Seria necessário analisar cenários também como facilidade de integração, curva de aprendizado dos membros da squad para a nova ferramenta, produtividade que vai ser agredada ou retirada a partir da adesão do framework, manutenção a longo prazo da própria ferramenta, performance e a parte mais crucial para decidir essas novas implementações é o custo que vai ser gerado para a empresa.
+- Uma ação que poderia ser tomada para isso seria realizar uma prova de conceito para testar o framework em um ambiente controlado, verificar se ele atende aos critérios que foram esperados e logo após isso fazer a análise dos resultados em relação aos critérios que foram usados para avaliar o framework.
+- Entendo que a tomada de decisão só pode ser realizada após esses cenários serem concluídos.
+
+## 
+
+### Colaboração e Mentoria:
+
+- Acho que em um primeiro momento seria fazer a análise do meu time e categorizar eles em relação à nível de conhecimento técnico. Este último sendo o primeiro ponto para levar em consideração para definir o nível de um integrante. Logo após tentaria montar times com uma separação onde teria um ponto focal ( este sendo o integrante mais experiente ) que seria responsável por ajudar os integrantes da sua equipe. Promover dinâmicas para identificar pontos fortes em cada integrante e estabelecer um canal direto de comunicação tanto comigo quanto com os outros líderes de outra equipe. Tornar um ambiente colaborativo. E promover interação entre as equipes de forma a cada equipe trazer como está a evolução e apresentar sobre algum assunto específico, para que o conhecimento seja fomentado por eles e para eles.
+- Garantir que as tarefas fossem dividas de acordo com o nível de cada integrante
+- Promover code reviews estruturados para garantir a qualidade de código e troca de conhecimento entre as equipes.
+- Incentivar o uso de criação de documentação para jornadas, tecnologias e até novas tecnologias.
+- E um dos pontos mais importantes, criar uma estrutura de feedback para todos os integrantes do time. De forma que possa contribuir para melhora individual de cada integrante e da equipe por conseguinte.
 
 

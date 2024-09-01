@@ -1,6 +1,6 @@
 # RPE-Answers
 
-### Arquitetura de Front-end (coloquei nos arquivos uma imagem de como seria a arquitetura que imaginei para uma aplicação dessa forma):
+### Arquitetura de Front-end (coloquei nos arquivos uma imagem de como seria a arquitetura que imaginei para uma aplicação dessa forma `PATH da image: src -> assets -> file`):
 
 - Como primeiro passo sendo a escolha das tecnologias para serem utilizadas no projeto. A escolha consistiria em:
   * Biblioteca Front-end: React
